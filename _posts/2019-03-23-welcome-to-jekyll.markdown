@@ -1,28 +1,22 @@
 ---
 layout: post
-title:  "Integrating razorpay into your webapp"
-date:   2019-03-23 21:03:36 +0530
-categories: Javascript NodeJS
+title:  "Cannot resolve table/Cannot resolve column 해결하기"
+date:   2020-01-15 21:03:36 +0900
+categories: IntelliJ
 ---
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+IntelliJ Community에서 ulitimate로 변경 후 JPA에 명명된 테이블과 컬럼을 아래의 이미지 같이 인식하지 못하는 문제가 있는 경우 설정 방법.
+![테이블명과 컬럼을 인식 못하고 있다](../images/2020-01-15_001.png)
 
-```javascript
-const Razorpay = require('razorpay');
+##1. Data Source 추가하기
+우선 Data Source가 등록되어 있는지 확인하고, 등록된 Data Source가 없을 경우 추가를 해줘야 한다.
+![Data Source 추가하기1](../images/2020-01-15_002.png)
 
-let rzp = Razorpay({
-	key_id: 'KEY_ID',
-	secret: 'name'
-});
+![Data Source 추가하기2](../images/2020-01-15_003.png)
 
-// capture request
-rzp.capture(payment_id, cost)
-	.then(function (data) {
-		return 2;
-	})
-```
+##2. Persistence에 Assign Data Source 설정하기
+Persistence에서 오른쪽 마우스 버튼을 눌러 Assign Data Source를 클릭
+![Assign Data Source 설정](../images/2020-01-15_004.png)
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+적당한 Data Source를 선택
+![Data Source 선택](../images/2020-01-15_005.png)
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
