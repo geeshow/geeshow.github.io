@@ -6,7 +6,7 @@ categories: springboot intellij
 ---
 github를 사용하기 위해 필요한 기본적인 설정 방법과 유용한 github desktop에 대하여 알아보자.
 
-##1. spring boot 프로젝트 파일 다운받기
+## 1. spring boot 프로젝트 파일 다운받기
 Intellij community 버전에서는 [https://start.spring.io/](https://start.spring.io/)에서 프로젝트 파일을 생성할 수 있다.
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-18_001.png)
 
@@ -24,7 +24,7 @@ Intellij community 버전에서는 [https://start.spring.io/](https://start.spri
 `Generate - Ctrl` 버튼을 클릭해서 다운받은 압축된 프로젝트 파일을 원하는 폴더에 풀어준다.
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-18_003.png)
 
-##2. IntelliJ에서 Project 열기
+## 2. IntelliJ에서 Project 열기
 IntelliJ에서 해당 폴더를 Open한다.
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-18_004.png)
 
@@ -32,14 +32,14 @@ IntelliJ에서 해당 폴더를 Open한다.
 Lombok을 사용하기 위해서는 Lombok 플러그인 설치가 필요하다.
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-18_005.png)
 
-##3. Lombok 설치하기
+## 3. Lombok 설치하기
 Setting > Plugins에서 Lombok Plugin을 설치한다.
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-18_015.png)
 
 Setting > Build, Execution... > Compiler > Annotation Processors에서 Enable annotation processing을 체크한다.
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-18_006.png)
 
-##4. 프로젝트 실행하기
+## 4. 프로젝트 실행하기
 프로젝트가 정상적으로 설치되었는지 확인해보자.
 아래와 같이 프로젝트를 구동한다.
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-18_007.png)

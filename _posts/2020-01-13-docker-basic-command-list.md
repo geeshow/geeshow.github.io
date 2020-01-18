@@ -6,7 +6,7 @@ categories: Docker
 ---
 Docker에서 자주 사용되는 명령문
 
-##Docker image 명령
+## Docker image 명령
 - 이미지 검색
 `docker search ubuntu`
 
@@ -31,7 +31,7 @@ docker rmi ubuntu:latest
 이미지 이름을 사용
 
 
-##Docker container 명령
+## Docker container 명령
 - 등록된 컨테이너 확인
 `docker ps -a`
 
@@ -50,7 +50,7 @@ docker rmi ubuntu:latest
 `docker cp hello-nginx:/etc/nginx/nginx.conf ./`
 
 
-##Image 생성
+## Image 생성
 - build로 이미지 생성하기
 `docker build --tag hello:0.1 .`
 현재 디렉토리에 Dockerfile이 존재 해야함
@@ -63,7 +63,7 @@ A:추가된 파일
 C:변경 파일
 D:삭제 파일
 
-##Dockerfile 샘플
+## Dockerfile 샘플
 ```
 FROM ubuntu:14.04
 MAINTAINER geeshow <geeshow@이메일.com>
