@@ -12,9 +12,11 @@ show_excerpts: true # set to true to show excerpts on the homepage
 sass:
   sass_dir: _sass
 plainwhite:
+  analytics_id: "UA-156491443-1"
+  disqus_shortname: geeshow
   name: Kyutae Park
   tagline: Business Developer
-  date_format: "%b %-d, %Y"
+  date_format: "%Y %-m %-d"
   sitemap: true # set to true to generate sitemap.xml content
 
   # generate social links in footer
