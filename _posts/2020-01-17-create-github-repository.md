@@ -10,7 +10,7 @@ github를 사용하기 위해 필요한 기본적인 설정 방법과 유용한 
 github는 단순히 원격 저장소이므로 github를 사용하기 위해서는 git이 설치되어 있어야 한다.
 [https://www.git-scm.com/](https://www.git-scm.com/)에서 다운받을 수 있다.
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-17_004.png)
- 
+
 
 ##2. github에 repository 추가하기
 github에서 회원가입을 완료한다. 그리고 메인 페이지에서 add버튼을 눌러 repository를 추가 페이지로 이동.
