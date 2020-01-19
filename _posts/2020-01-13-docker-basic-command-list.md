@@ -20,8 +20,10 @@ Docker에서 자주 사용되는 명령문
 docker rmi ubuntu:latest
 
 - 이미지로부터 컨테이너 생성
-`docker run -i -t --name 컨테이너명 ubuntu /bin/bash`
-`docker run --name 컨테이너명 -d -p 80:80 -v hostdata:/data hello:0.1`
+```
+docker run -i -t --name 컨테이너명 ubuntu /bin/bash
+docker run --name 컨테이너명 -d -p 80:80 -v hostdata:/data hello:0.1
+```
 -d 백그라운드 실행
 -p 80:80 호스트와 컨테이너의 포트를 연결하고 외부에 노출
 -v 호스트와 컨테이너 공유 폴더
