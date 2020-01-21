@@ -7,6 +7,7 @@ categories: springboot intellij
 
 ## 1. application.yml 설정하기
 resources 폴더에 application.properties가 있다. 개인적으로 properties보다 yml 파일을 선호하기 때문에 application.perperties 파일을 application.yml로 변경한다.
+
 설정은 다음과 같이 한다.
 ```yaml
 spring:
@@ -40,6 +41,7 @@ logging:
 
 ## 2. 샘플 Entity 만들기
 project main 폴더에 domain 폴더를 만들고, Board.java파일을 생성한다.
+
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-18_016.png)
 
 ```java
@@ -60,7 +62,20 @@ public class Board {
 }
 ```
 
-## 3. h2database에 자동 테이블 생성 확인
+## 3. h2database에 database 파일 생성
+h2database는 파일형식으로 DB를 관리하므로 처음 접근시 파일 권한을 필요로 한다. 때문에 JDBC URL을 아래와 같이 설정한다.
+
+```
+jdbc:h2:~/firstexample
+```
+
+이 후 연결시 JDBC URL을 변경해 준다.
+
+```
+jdbc:h2:tcp://localhost/~/firstexample
+```
+
+## 4. h2database에 자동 테이블 생성 확인
 Entity 클래스를 이용해 자동으로 생성된 Table을 확인할 수 있다.
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-18_017.png)
 
