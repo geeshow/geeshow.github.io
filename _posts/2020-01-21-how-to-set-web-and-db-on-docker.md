@@ -27,82 +27,28 @@ spring:
 url로 설정된 `mypostgres`는 docker postgres 컨테이너의 이름이기 때문에 postgres 컨테이너를 생성할때 `mypostgres`로 생성해야 한다.
 
 ## 2. postgres 컨테이너 생성
-개발환경에서는 기본적으로 local환경을 적용해야 하기 때문에 application.yml 파일에 local을 기본값으로 설정 해 둔다.
-
-```yaml
-spring:
-  profiles:
-    active: local
+docker 명령으로 postgres 이미지를 실행시켜준다.
 ```
-
-## 2. application-local.yml 만들기
-project main 폴더에 domain 폴더를 만들고, Board.java파일을 생성한다.
-
-```yaml
-spring:
-  jackson:
-    deserialization.fail-on-unknown-properties: true
-  datasource:
-    url: jdbc:h2:tcp://localhost/~/firstexample
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        #      show_sql: true
-        format_sql: true
-
-logging:
-  level:
-    org:
-      hibernate.SQL: debug
-      hibernate.type: trace
-      springframework.security: debug
-
-    springframework:
-      data:
-        repository: DEBUG
+docker run -d --name mypostgres postgres
 ```
+`run`을 했을때 해당 이미지가 없으면 자동으로 다운받는다.
 
-## 3. application-test.yml 만들기
-Entity 클래스를 이용해 자동으로 생성된 Table을 확인할 수 있다.
+![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-21_001.png)
 
-```yaml
-spring:
-  jackson:
-    deserialization.fail-on-unknown-properties: true
-  datasource:
-    url: jdbc:postgresql://localhost:5432/example
-    username: postgres
-    password: pass
-    driver-class-name: org.postgresql.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        #      show_sql: true
-        format_sql: true
-
-logging:
-  level:
-    org:
-      hibernate.SQL: debug
-      hibernate.type: trace
-      springframework.security: debug
-
-    springframework:
-      data:
-        repository: DEBUG
+## 3. ubuntu 컨테이너와 postgres 컨테이너 연결
+ubuntu 컨테이너를 생성할때 link 옵션을 사용해 postgres과 연결시켜 준다.
 ```
-
-## 4. 애플리케이션 구동 시 yml 적용하기
-
+docker run -i -t --name web -p 8080:8080 --link mypostgres:mypostgres ubuntu /bin/bash
 ```
-java -Dspring.profiles.active=test -jar jar파일명
+`-i -t` 옵션과 `/bin/bash`로 컨테이너를 생성하면 ubuntu 콘솔에 접근하게 된다.
+
+`exit` 명령을 이용하면 ubuntu를 빠져나오면서 컨테이너도 같이 종료된다.
+그래서 `Ctrl+p, Ctrl+q`를 이용해 빠져나와야 한다.
+
+## 4. ubuntu에 openjdk 설치하기
+아래 명령을 이용해 설치해주다.
 ```
+apt-get update (apt-get목록을 최신으로 갱신. 2분정도 소요)
+apt-get install default-jdk (open jdk를 다운 받는다. 30분 정도 소요)
+```
+설치가 정상적으로 완료 됐는지 `java -version`으로 확인해본다.
