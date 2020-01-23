@@ -44,9 +44,13 @@ docker run -i -t --name web -p 8080:8080 --link mypostgres:mypostgres ubuntu /bi
 
 `exit` 명령을 이용하면 ubuntu를 빠져나오면서 컨테이너도 같이 종료된다.
 그래서 `Ctrl+p, Ctrl+q`를 이용해 빠져나와야 한다.
+다시 접속하기 위해서는 attach 명령을 이용한다.
+```
+docker attach web
+```
 
 ## 4. ubuntu에 openjdk 설치하기
-아래 명령을 이용해 설치해주다.
+utunbu에서 아래 명령을 이용해 설치해주다.
 ```
 apt-get update (apt-get목록을 최신으로 갱신. 2분정도 소요)
 apt-get install default-jdk (open jdk를 다운 받는다. 30분 정도 소요)
