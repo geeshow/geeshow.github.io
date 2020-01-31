@@ -27,18 +27,17 @@ public class Board {
 ```
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-30_002.png)
 - @Entity : Spring container에 Entity Bean이라고 선언.
-
 Bean을 선언하지 않으면 단순 Java 파일이며 Spring에서 관리하지 않는다.
 
 - @Builder : Lombok에서 지원하는 Annotation이다.
 객체를 생성할때 사용된다.
 
 - @Getter @Setter : Lombok에서 지원하는 자동 코드 생성 Annotation으로
+클래스의 맴버 변수를 접근할 수 있는 Getter와 설정할 수 있는 Setter 메소드를 생성해 준다.
 
 - @NoArgsConstructor : 매개변수 없는 생성자를 만들어 준다.
 - @AllArgsConstructor : 모든 맴버변수를 매개변수로 정의된 생성자를 만들어 준다.
 
-클래스의 맴버 변수를 접근할 수 있는 Getter와 설정할 수 있는 Setter 메소드를 생성해 준다.
 
 ## 2. JPA Repository 생성
 `main > java > 프로젝트명 > repository` 폴더에 BoardRepository.java 파일 생성
@@ -116,3 +115,5 @@ public class BoardRepositoryTest {
 }
 ```
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-01-30_004.png)
+
+끄읏.
