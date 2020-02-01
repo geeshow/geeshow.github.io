@@ -2,7 +2,7 @@
 layout: post
 title:  "spring boot ConfigurationProperties로 application 변수 사용하기"
 date:   2020-02-01 21:32:00 +0900
-categories: springboot intellij ConfigurationProperties을
+categories: springboot intellij ConfigurationProperties
 ---
 
 ## 1. properties에 데이터 입력
@@ -24,18 +24,20 @@ company.email=master@exbi.co.kr
 ```
 
 ## 2. 값을 바인딩할 component 생성
-Component와 ConfigurationProperties을 적용하고, 바인딩할 맴버변수를 선언해야한다.
+`@Component`, `@ConfigurationProperties`을 적용하고, prefix값으로 `company`를 지정했다. Spring container가 properties파일을 읽고 Company객체에 값을 바인딩할 때 Setter를 이용하기 때문에 `@Setter`도 함께 선언해줘야 한다. 
 ```java
 @Component
 @ConfigurationProperties("company")
 @Getter
 @Setter
 public class Company {
+	// 바인드될 맴버변수를 선언
     private String name;
     private String address;
     private String telNumber;
     private String email;
 
+	// 정상적으로 바인드 되었는지 확인하기 위해 toString을 재정의
     @Override
     public String toString() {
         return "Company{" +
@@ -47,13 +49,13 @@ public class Company {
     }
 }
 ```
-ㅇ
 
 ## 3. 의존관계 설정
 ConfigurationProperties를 추가하면 아래와 같은 메시지를 만나게 된다.
 ![](https://raw.githubusercontent.com/geeshow/geeshow.github.io/master/images/2020-02-01_001.png)
 Properies를 사용하기 위해 필요한 의존관계를 설정해야 한다.
 - Maven
+
 ```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
@@ -63,6 +65,7 @@ Properies를 사용하기 위해 필요한 의존관계를 설정해야 한다.
 ```
 
 - Gradle 4.5 이하
+
 ```
 dependencies {
 	compileOnly "org.springframework.boot:spring-boot-configuration-processor"
@@ -70,6 +73,7 @@ dependencies {
 ```
 
 - Gradle 4.6 이상
+
 ```
 dependencies {
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
