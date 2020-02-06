@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "spring boot 스터디 2일 차"
+title:  "spring boot 스터디 2주 차"
 date:   2020-01-30 22:13:00 +0900
 categories: springboot intellij
 ---
